@@ -1,0 +1,32 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ContentDisplay",
+  "description": "Content published for new students and volunteers.",
+  "type": "object",
+  "properties": {
+    "_id": {
+      "type": "string",
+      "description": "Unique identifier for the content document."
+    },
+    "title": {
+      "type": "string"
+    },
+    "content": {
+      "type": "string"
+    },
+    "publishDate": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "author": {
+      "type": "string"
+    },
+    "role": {
+      "type": "string",
+      "enum": ["student", "volunteer"],
+      "description": "Target role for the content."
+    }
+  },
+  "required": ["title", "content", "role"],
+  "additionalProperties": false
+}
