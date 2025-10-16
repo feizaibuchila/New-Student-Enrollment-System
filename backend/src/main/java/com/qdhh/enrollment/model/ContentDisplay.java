@@ -33,7 +33,7 @@ public class ContentDisplay {
     private String author;
 
     @Column(length = 32)
-    private String role;
+ private    String role;
 
     public ContentDisplay() {
     }

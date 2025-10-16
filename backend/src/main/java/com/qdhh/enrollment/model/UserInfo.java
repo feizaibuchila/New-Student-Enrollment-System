@@ -5,6 +5,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
+import java.time.Year;
+
 /**
  * Represents a WeChat user participating in the Qingdao Huanghai College enrollment system.
  */
@@ -88,6 +90,9 @@ public class UserInfo {
     }
 
     public void setEnrollmentYear(Integer enrollmentYear) {
+        if (enrollmentYear != null) {
+            Year.parse(enrollmentYear.toString());
+        }
         this.enrollmentYear = enrollmentYear;
     }
 }
