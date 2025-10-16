@@ -1,0 +1,39 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Users",
+  "description": "Cloud database collection storing WeChat user accounts for the enrollment mini program.",
+  "type": "object",
+  "properties": {
+    "_id": {
+      "type": "string",
+      "description": "Primary key matching the user's WeChat openid."
+    },
+    "nick": {
+      "type": "string",
+      "description": "Display nickname obtained from the user profile."
+    },
+    "avatar": {
+      "type": ["string", "null"],
+      "description": "Avatar image URL bound to the WeChat account.",
+      "format": "uri"
+    },
+    "role": {
+      "type": "string",
+      "enum": ["student", "volunteer"],
+      "default": "student",
+      "description": "Authorization role for the enrollment mini program."
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the account document was first created."
+    },
+    "last_login_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp of the most recent login activity."
+    }
+  },
+  "required": ["_id", "nick", "role", "created_at"],
+  "additionalProperties": false
+}
