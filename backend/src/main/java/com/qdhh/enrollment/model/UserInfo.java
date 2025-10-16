@@ -1,27 +1,36 @@
 package com.qdhh.enrollment.model;
 
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 import java.time.Year;
 
 /**
  * Represents a WeChat user participating in the Qingdao Huanghai College enrollment system.
  */
-@Document(collection = "user_info")
+@Entity
+@Table(name = "user_info")
 public class UserInfo {
 
     @Id
+    @Column(nullable = false, updatable = false, length = 64)
     private String openid;
 
+    @Column(nullable = false, length = 32)
     private String role;
 
+    @Column(length = 64)
     private String nickname;
 
+    @Column(length = 512)
     private String avatar;
 
+    @Column(length = 16)
     private String gender;
 
+    @Column(name = "enrollment_year")
     private Integer enrollmentYear;
 
     public UserInfo() {

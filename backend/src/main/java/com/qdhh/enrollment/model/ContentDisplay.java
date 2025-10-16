@@ -1,28 +1,39 @@
 package com.qdhh.enrollment.model;
 
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Lob;
+import jakarta.persistence.Table;
 
 import java.time.Instant;
 
 /**
  * Content that can be displayed to specific roles inside the onboarding system.
  */
-@Document(collection = "content_display")
+@Entity
+@Table(name = "content_display")
 public class ContentDisplay {
 
     @Id
+    @Column(nullable = false, updatable = false, length = 64)
     private String id;
 
+    @Column(nullable = false, length = 128)
     private String title;
 
+    @Lob
+    @Column(nullable = false)
     private String content;
 
+    @Column(name = "publish_date", nullable = false)
     private Instant publishDate;
 
+    @Column(length = 64)
     private String author;
 
-    private String role;
+    @Column(length = 32)
+ private    String role;
 
     public ContentDisplay() {
     }
