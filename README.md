@@ -14,4 +14,4 @@
 
 ### 微信小程序（云开发）
 - 云数据库集合 Schema 位于 `miniprogram/cloud/database/collections/`，用于同步用户信息和内容展示的数据结构。
-- `miniprogram/cloud/database/users.collection.js` 提供创建 `users` 集合以及基础 CRUD 方法，便于在云函数或脚本中维护微信用户账号。
+- `miniprogram/cloud/database/users.collection.js` 暴露单入口云函数 `main`，通过 `action` 参数在一条分支上完成 `ensure/create/get/list/update/remove` 操作，便于个人开发者在单分支流程里调用并维护微信用户账号（例如：`cloud.callFunction({ name: 'users', data: { action: 'create', payload: { openid, nick } } })`）。
