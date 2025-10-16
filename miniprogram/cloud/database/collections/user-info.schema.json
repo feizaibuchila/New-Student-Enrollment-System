@@ -1,0 +1,37 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "UserInfo",
+  "description": "WeChat user profile stored in the cloud database for the enrollment system.",
+  "type": "object",
+  "properties": {
+    "_id": {
+      "type": "string",
+      "description": "Document identifier bound to the WeChat openid."
+    },
+    "openid": {
+      "type": "string",
+      "description": "WeChat openid for the mini program session."
+    },
+    "role": {
+      "type": "string",
+      "enum": ["student", "volunteer"],
+      "default": "student"
+    },
+    "nickname": {
+      "type": "string"
+    },
+    "avatar": {
+      "type": "string",
+      "description": "Avatar URL returned by the WeChat API."
+    },
+    "gender": {
+      "type": "string"
+    },
+    "enrollmentYear": {
+      "type": ["integer", "null"],
+      "description": "Entrance year provided by the student."
+    }
+  },
+  "required": ["openid", "role"],
+  "additionalProperties": false
+}
